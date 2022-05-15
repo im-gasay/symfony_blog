@@ -50,7 +50,7 @@ class RbcResource implements ResourceInterface
             }
         }
 
-        $crawler->filter('.article__text > *')->each(function (Crawler $item) use (&$text) {
+        $crawler->filter('.article__text > *')->each(function (Crawler $item) use (&$text, $postUrl) {
             if (in_array($item->nodeName(), ['p', 'h2', 'li'])) {
                 $text .= $item->text();
             }
@@ -88,7 +88,7 @@ class RbcResource implements ResourceInterface
                 return;
             }
 
-            if (str_contains($postLink, '.html') || str_contains($postLink, 'utm_source')) {
+            if (str_contains($postLink, '.html') || str_contains($postLink, 'utm_source') || str_contains($postLink, 'video_id')) {
                 return;
             }
 
