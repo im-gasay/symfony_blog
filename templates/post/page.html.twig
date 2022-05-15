@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }} | {% endblock %}
+
+{% block content %}
+    <article class="post-page">
+        <h1 class="post-page__title">{{ post.title }}</h1>
+        {% if post.imageUrl %}
+        <div class="post-page__image">
+            <img src="{{ post.imageUrl }}" alt="{{ post.title }}">
+        </div>
+        {% endif %}
+        <div class="post-page__content">
+            {{ post.content }}
+        </div>
+    </article>
+{% endblock %}

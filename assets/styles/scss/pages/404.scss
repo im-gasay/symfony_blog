@@ -1,0 +1,30 @@
+.e404 {
+  background-image: url("https://cs14.pikabu.ru/post_img/2022/04/16/9/165012180713122325.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    background-color: rgb(167 53 53 / 89%);
+    max-width: 400px;
+    padding: 1rem 1rem;
+    backdrop-filter: blur(0.4rem);
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #00000094;
+    margin-bottom: 0.3rem;
+  }
+
+  &__content {
+    font-weight: 500;
+    color: #161515d1;
+  }
+}

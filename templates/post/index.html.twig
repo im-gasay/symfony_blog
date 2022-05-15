@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 class="post-header">Новости</h1>
+    <div class="post-list">
+        {% for post in posts %}
+            <a class="post-item" href="/posts/{{ post.id }}">
+                <div class="post-item__title">{{ post.title }}</div>
+                <div class="post-item__content">{{ post.content | slice(0, 200) }}</div>
+                <div class="post-item__see-more">Читать далее...</div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
