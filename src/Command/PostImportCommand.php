@@ -58,8 +58,8 @@ class PostImportCommand extends Command
                     $existPost->setImageUrl($post->imageUrl);
                     $existPost->setContent($post->text);
                     $existPost->setEditAt($post->editAt);
+                    $this->entityManager->persist($existPost);
                 }
-
                 continue;
             }
 
