@@ -54,13 +54,13 @@ class PostRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Post
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findOneByHash(string $hash): ?Post
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.hash = :val')
+            ->setParameter('val', $hash)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

@@ -19,11 +19,17 @@ class Post
     #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\Column(type: 'string')]
+    #[ORM\Column(type: 'string', unique: true)]
+    private $hash;
+
+    #[ORM\Column(type: 'string', nullable: true)]
     private $image_url;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $post_at;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $edit_at;
 
     public function getId(): ?int
     {
@@ -59,22 +65,49 @@ class Post
         return $this->image_url;
     }
 
-    public function setImageUrl(string $image_url): self
+    public function setImageUrl(?string $image_url): self
     {
         $this->image_url = $image_url;
 
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getHash(): string
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param mixed $hash
+     */
+    public function setHash(string $hash): void
+    {
+        $this->hash = $hash;
+    }
 
     public function getPostAt(): ?\DateTimeImmutable
     {
         return $this->post_at;
     }
 
-    public function setPostAt(\DateTimeImmutable $post_at): self
+    public function setPostAt(?\DateTimeImmutable $post_at): self
     {
         $this->post_at = $post_at;
+
+        return $this;
+    }
+
+    public function getEditAt(): ?\DateTimeImmutable
+    {
+        return $this->edit_at;
+    }
+
+    public function setEditAt(?\DateTimeImmutable $edit_at): self
+    {
+        $this->edit_at = $edit_at;
 
         return $this;
     }
